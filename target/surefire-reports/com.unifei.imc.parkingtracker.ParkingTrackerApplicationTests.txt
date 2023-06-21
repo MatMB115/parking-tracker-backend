@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.unifei.imc.parkingtracker.ParkingTrackerApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.735 s - in com.unifei.imc.parkingtracker.ParkingTrackerApplicationTests

@@ -1,12 +1,10 @@
 package com.unifei.imc.parkingtracker.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -33,12 +31,4 @@ public class User {
 
     @Column(name = "tipo_usuario")
     private Character tipoUsuario;
-
-    public User(UserRequestDTO data){
-        this.nome = data.nome();
-        this.email = data.email();
-        this.senha = data.senha();
-        this.contato = data.contato();
-        this.tipoUsuario = data.tipo();
-    }
 }

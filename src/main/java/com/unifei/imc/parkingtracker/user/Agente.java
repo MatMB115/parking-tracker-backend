@@ -1,19 +1,23 @@
 package com.unifei.imc.parkingtracker.user;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 @Table(name = "tb_agente")
 public class Agente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_agente")
-    private Integer id;
-
-    @OneToOne
-    @JoinColumn(name = "id_user")
-    private User user;
+    private Integer idAgente;
 
     @Column(name = "turno")
     private Character turno;
-    // getters and setters
+
+    @OneToOne
+    @JoinColumn(name = "id_rel_user")
+    private User user;
 }

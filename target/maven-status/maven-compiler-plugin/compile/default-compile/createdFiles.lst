@@ -1,2 +1,16 @@
+com/unifei/imc/parkingtracker/infra/security/SecurityConfigurations.class
+com/unifei/imc/parkingtracker/service/UserService.class
+com/unifei/imc/parkingtracker/repository/AgenteRepository.class
+com/unifei/imc/parkingtracker/dto/UserRequestDTO.class
+com/unifei/imc/parkingtracker/repository/UserRepository.class
+com/unifei/imc/parkingtracker/user/Agente.class
+com/unifei/imc/parkingtracker/user/Cliente.class
+com/unifei/imc/parkingtracker/service/TokenService.class
+com/unifei/imc/parkingtracker/dto/UserResponseDTO.class
 com/unifei/imc/parkingtracker/controller/UserController.class
+com/unifei/imc/parkingtracker/service/AuthService.class
 com/unifei/imc/parkingtracker/ParkingTrackerApplication.class
+com/unifei/imc/parkingtracker/user/User.class
+com/unifei/imc/parkingtracker/repository/ClienteRepository.class
+com/unifei/imc/parkingtracker/controller/AuthController.class
+com/unifei/imc/parkingtracker/dto/LoginRequestDTO.class

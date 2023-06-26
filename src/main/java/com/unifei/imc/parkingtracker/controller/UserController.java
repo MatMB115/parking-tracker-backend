@@ -29,11 +29,22 @@ public class UserController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateUser(@PathVariable String id, @RequestBody UserResponseDTO data) {
+    public ResponseEntity<String> updateUser(@PathVariable String id, @RequestBody UserRequestDTO data) {
         Optional<UserResponseDTO> userDTO = userService.getUserById(id);
         if (userDTO.isPresent()) {
             userService.updateUser(id, data);
-            return ResponseEntity.ok("Usuário atualizado com sucesso.");
+            return ResponseEntity.status(200).body("Usuário atualizado com sucesso.");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteById(@PathVariable String id){
+        Optional<UserResponseDTO> userDTO = userService.getUserById(id);
+        if (userDTO.isPresent()) {
+            userService.deleteUser(id);
+            return ResponseEntity.status(200).body("Usuário deletado com sucesso.");
         }
         return ResponseEntity.notFound().build();
     }

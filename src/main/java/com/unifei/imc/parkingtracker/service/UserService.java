@@ -26,7 +26,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void saveUser(UserRequestDTO data) {
+    public Integer saveUser(UserRequestDTO data) {
 
         User user = new User();
         BCryptPasswordEncoder passEncoder = new BCryptPasswordEncoder();
@@ -44,12 +44,15 @@ public class UserService {
             cliente.setUser(user);
             cliente.setCreditos(data.creditos());
             clienteRepository.save(cliente);
+            return cliente.getIdCliente();
         } else if (data.tipoUsuario().toString().equals("A")) {
             Agente agente = new Agente();
             agente.setUser(user);
             agente.setTurno(data.turno());
             agenteRepository.save(agente);
+            return null;
         }
+        return null;
     }
 
     public List<UserResponseDTO> getAllUsers() {
@@ -82,7 +85,7 @@ public class UserService {
         return Optional.empty();
     }
 
-    public void updateUser(String id, UserResponseDTO data) {
+    public void updateUser(String id, UserRequestDTO data) {
         Integer idUser = parseInt(id);
 
         Optional<User> optionalUser = userRepository.findById(idUser);
@@ -98,5 +101,10 @@ public class UserService {
 
             userRepository.save(user);
         }
+    }
+
+    public void deleteUser(String id) {
+        Integer idUser = parseInt(id);
+        userRepository.deleteById(idUser);
     }
 }

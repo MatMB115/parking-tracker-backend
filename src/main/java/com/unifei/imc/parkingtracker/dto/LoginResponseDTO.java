@@ -1,4 +1,4 @@
 package com.unifei.imc.parkingtracker.dto;
 
-public record LoginResponseDTO(String token) {
+public record LoginResponseDTO(Integer id_user, String token) {
 }

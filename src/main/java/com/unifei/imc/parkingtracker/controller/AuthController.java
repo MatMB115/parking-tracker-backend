@@ -42,7 +42,7 @@ public class AuthController {
             var token = tokenService.generateToken(user);
             return ResponseEntity.ok(new LoginResponseDTO(user.getId(), token));
         } catch(InternalAuthenticationServiceException e){
-            return ResponseEntity.status(500).body(Map.of("details", "Usuario não encontrado"));
+            return ResponseEntity.status(404).body(Map.of("details", "Usuario não encontrado"));
         } catch (Exception e){
             return ResponseEntity.status(500).build();
         }

@@ -1,5 +1,6 @@
 package com.unifei.imc.parkingtracker.entity.vaga;
 
+import com.unifei.imc.parkingtracker.entity.vehicle.Veiculo;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,13 +19,14 @@ public class Vaga {
     @Setter(AccessLevel.NONE)
     private Integer idVagas;
 
-    @Column(name = "id_veiculo", nullable = true)
-    private Integer idVeiculo;
+    @OneToOne
+    @JoinColumn(name = "id_veiculo", nullable = true)
+    private Veiculo veiculo;
 
     @Column(name = "id_cliente", nullable = true)
     private Integer idCliente;
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = true)
     private Integer status;
 
     @Column(name = "position_lat")

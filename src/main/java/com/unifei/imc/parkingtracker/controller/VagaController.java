@@ -26,4 +26,5 @@ public class VagaController {
         vagaService.saveVaga(data);
         return ResponseEntity.status(200).body("Vaga criada com sucesso");
     }
+
 }

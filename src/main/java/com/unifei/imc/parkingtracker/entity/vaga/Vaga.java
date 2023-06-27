@@ -40,4 +40,11 @@ public class Vaga {
 
     @Column(name = "reservation_time", nullable = true)
     private LocalDateTime reservationTime;
+
+    @PrePersist
+    protected void prePersist() {
+        if (lastModification == null) {
+            lastModification = LocalDateTime.now();
+        }
+    }
 }

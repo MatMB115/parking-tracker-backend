@@ -14,10 +14,10 @@ public class Veiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_veiculo")
     @Setter(AccessLevel.NONE)
-    private Integer idVeiculo;
+    private Integer id_veiculo;
 
     @Column(name = "id_cliente")
-    private Integer idCliente;
+    private Integer id_cliente;
 
     @Column(name = "placa")
     private String placa;

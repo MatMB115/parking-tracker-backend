@@ -28,7 +28,7 @@ public class VeiculoService {
     public void saveVeiculo(VeiculoRequestDTO data) {
 
         Veiculo veiculo = new Veiculo();
-        veiculo.setIdCliente(data.id_cliente());
+        veiculo.setId_cliente(data.id_cliente());
         veiculo.setCor(data.cor());
         veiculo.setPlaca(data.placa());
         veiculo.setModelo(data.modelo());

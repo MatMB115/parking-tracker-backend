@@ -90,6 +90,13 @@ public class VagaService {
 
         for(Vaga vaga: vagasPendentes){
             LocalDateTime tempoReserva = vaga.getReservationTime();
+            if(vaga.getStatus().equals(4)){
+                vaga.setLastModification(now);
+                VagaResponseDTO vagaDTO = new VagaResponseDTO(vaga);
+                topicProducer.send(toMap(vagaDTO));
+                vaga.setStatus(3);
+            }
+
             if(tempoReserva.isBefore(now) && vaga.getStatus().equals(1)){
                 vaga.setStatus(4);
                 vaga.setLastModification(now);

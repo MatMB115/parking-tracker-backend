@@ -1,6 +1,6 @@
 package com.unifei.imc.parkingtracker.repository;
 
-import com.unifei.imc.parkingtracker.user.User;
+import com.unifei.imc.parkingtracker.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 

@@ -1,4 +1,4 @@
-package com.unifei.imc.parkingtracker.user;
+package com.unifei.imc.parkingtracker.entity.user;
 
 import jakarta.persistence.*;
 import lombok.*;

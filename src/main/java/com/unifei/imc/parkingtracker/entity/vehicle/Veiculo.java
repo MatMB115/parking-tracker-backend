@@ -1,4 +1,4 @@
-package com.unifei.imc.parkingtracker.vehicle;
+package com.unifei.imc.parkingtracker.entity.vehicle;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

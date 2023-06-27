@@ -1,7 +1,7 @@
 package com.unifei.imc.parkingtracker.dto;
 
-import com.unifei.imc.parkingtracker.user.Agente;
-import com.unifei.imc.parkingtracker.user.Cliente;
+import com.unifei.imc.parkingtracker.entity.user.Agente;
+import com.unifei.imc.parkingtracker.entity.user.Cliente;
 
 public record UserResponseDTO(Integer idUser, Integer idChild, String nome, String email, String senha, String contato, Character tipoUsuario, Integer creditos, Character turno) {
     public UserResponseDTO(Cliente cliente){

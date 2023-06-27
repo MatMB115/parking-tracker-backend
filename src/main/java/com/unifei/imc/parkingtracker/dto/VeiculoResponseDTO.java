@@ -1,6 +1,6 @@
 package com.unifei.imc.parkingtracker.dto;
 
-import com.unifei.imc.parkingtracker.vehicle.Veiculo;
+import com.unifei.imc.parkingtracker.entity.vehicle.Veiculo;
 
 public record VeiculoResponseDTO(Integer id_veiculo, Integer id_cliente, String placa, String modelo, String cor) {
     public VeiculoResponseDTO(Veiculo veiculo){

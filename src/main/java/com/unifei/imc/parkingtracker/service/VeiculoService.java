@@ -4,10 +4,8 @@ import com.unifei.imc.parkingtracker.dto.VeiculoRequestDTO;
 import com.unifei.imc.parkingtracker.dto.VeiculoResponseDTO;
 import com.unifei.imc.parkingtracker.repository.ClienteRepository;
 import com.unifei.imc.parkingtracker.repository.VeiculoRepository;
-import com.unifei.imc.parkingtracker.user.User;
-import com.unifei.imc.parkingtracker.vehicle.Veiculo;
+import com.unifei.imc.parkingtracker.entity.vehicle.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

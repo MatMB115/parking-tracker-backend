@@ -8,7 +8,7 @@ import com.unifei.imc.parkingtracker.infra.security.TokenService;
 import com.unifei.imc.parkingtracker.repository.UserRepository;
 import com.unifei.imc.parkingtracker.service.UserService;
 import com.unifei.imc.parkingtracker.service.VeiculoService;
-import com.unifei.imc.parkingtracker.user.User;
+import com.unifei.imc.parkingtracker.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

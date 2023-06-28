@@ -9,7 +9,6 @@ import com.unifei.imc.parkingtracker.entity.vaga.Vaga;
 import com.unifei.imc.parkingtracker.kafka.service.TopicProducer;
 import com.unifei.imc.parkingtracker.repository.VagaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +22,8 @@ public class VagaService {
     private List<Vaga> vagasPendentes;
     @Autowired
     private TopicProducer topicProducer;
+    @Autowired
+    private AutuacaoService autuacaoService;
 
     public VagaService() {
         this.vagasPendentes = new ArrayList<>();

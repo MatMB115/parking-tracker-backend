@@ -7,6 +7,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="entityManagerFactory" value="331699e4-bb4c-4ab8-a38e-100ec0bb1f0e" />
+          <factory-entry name="parking-tracker" value="3cc7dd54-cbdd-4561-bdbf-0b9f610a7a8b" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

@@ -22,8 +22,6 @@ public class VagaService {
     private List<Vaga> vagasPendentes;
     @Autowired
     private TopicProducer topicProducer;
-    @Autowired
-    private AutuacaoService autuacaoService;
 
     public VagaService() {
         this.vagasPendentes = new ArrayList<>();
@@ -101,9 +99,8 @@ public class VagaService {
             if(tempoReserva.isBefore(now) && vaga.getStatus().equals(1)){
                 vaga.setStatus(4);
                 vaga.setLastModification(now);
-                VagaResponseDTO vagaDTO = new VagaResponseDTO(vaga);
-                topicProducer.send(toMap(vagaDTO));
             }
+
             if(tempoReserva.isBefore(now) && (vaga.getStatus().equals(2) || vaga.getStatus().equals(0))){
                 removeVagas.add(vaga.getIdVagas());
             }

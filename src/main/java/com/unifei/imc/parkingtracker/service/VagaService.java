@@ -45,7 +45,6 @@ public class VagaService {
         if(data.lastModification().isPresent()){
             vaga.setLastModification(data.lastModification().get());
         }
-        vaga.setStatus(data.status());
         vaga.setLongitude(data.longi());
         vaga.setLatidade(data.lat());
 
@@ -68,10 +67,10 @@ public class VagaService {
                     vagasPendentes.add(vaga);
                 }else{
                     vagasPendentes = vagasPendentes.stream().map(v -> {
-                       if(v.getIdVagas().equals(vaga.getIdVagas())){
-                           return vaga;
-                       }
-                       return v;
+                        if(v.getIdVagas().equals(vaga.getIdVagas())){
+                            return vaga;
+                        }
+                        return v;
                     }).toList();
                 }
                 vagaRepository.save(vaga);
@@ -107,7 +106,7 @@ public class VagaService {
             }
         }
         for(Integer idVaga: removeVagas){
-            vagasPendentes = vagasPendentes.stream().filter((vaga)-> !vaga.getIdVagas().equals(idVaga)).toList();
+            vagasPendentes.removeIf(vaga -> vaga.getIdVagas().equals(idVaga));
         }
     }
 
@@ -139,8 +138,6 @@ public class VagaService {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-
         return json;
     }
-
 }

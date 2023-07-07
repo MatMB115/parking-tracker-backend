@@ -29,17 +29,24 @@ public class TopicListener {
     @KafkaListener(topics = "${topic.name.consumer}", clientIdPrefix = "status")
     public void consume(ConsumerRecord<String, String> payload) throws JsonProcessingException {
         logInfo(payload);
-        KafkaMessageDTO vagaStats = objectMapper.readValue(payload.value(), KafkaMessageDTO.class);
-
-        vagaService.updateVagaStatus(vagaStats);
+        try {
+            KafkaMessageDTO vagaStats = objectMapper.readValue(payload.value(), KafkaMessageDTO.class);
+            vagaService.updateVagaStatus(vagaStats);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @KafkaListener(topics = "${topic.name.consumer.agent}", clientIdPrefix = "agente")
-    public void consumeAgente(ConsumerRecord<String, String> payload) throws JsonProcessingException {
+    public void consumeAgente(ConsumerRecord<String, String> payload) {
         logInfo(payload);
-        KafkaMsgInfraDTO infra = objectMapper.readValue(payload.value(), KafkaMsgInfraDTO.class);
-
-        autuacaoService.autuaVeiculo(infra);
+        KafkaMsgInfraDTO infra = null;
+        try {
+            infra = objectMapper.readValue(payload.value(), KafkaMsgInfraDTO.class);
+            autuacaoService.autuaVeiculo(infra);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @KafkaListener(topics = "${topic.name.consumer.check}", clientIdPrefix = "check")

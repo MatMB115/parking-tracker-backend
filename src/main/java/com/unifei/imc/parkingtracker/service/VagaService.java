@@ -45,6 +45,7 @@ public class VagaService {
         if(data.lastModification().isPresent()){
             vaga.setLastModification(data.lastModification().get());
         }
+        vaga.setStatus(data.status());
         vaga.setLongitude(data.longi());
         vaga.setLatidade(data.lat());
 
@@ -106,7 +107,7 @@ public class VagaService {
             }
         }
         for(Integer idVaga: removeVagas){
-            vagasPendentes.removeIf(vaga -> vaga.getIdVagas().equals(idVaga));
+            vagasPendentes = vagasPendentes.stream().filter((vaga)-> !vaga.getIdVagas().equals(idVaga)).toList();
         }
     }
 
